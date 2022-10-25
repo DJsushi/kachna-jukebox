@@ -5,10 +5,13 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun main() {
-    embeddedServer(CIO, port = 8080) {
+    embeddedServer(CIO, port = 8081) {
         routing {
             get("/") {
                 call.respondText("Hello!")
+            }
+            get("/kachna") {
+                call.respondRedirect("https://google.com")
             }
         }
     }.start(wait = true)
