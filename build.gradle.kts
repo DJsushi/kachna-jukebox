@@ -4,40 +4,28 @@ val logback_version: String by project
 
 plugins {
     application
-    kotlin("multiplatform") version "1.7.20"
+    kotlin("jvm") version "1.7.20"
+    id("io.ktor.plugin") version "2.1.2"
+}
+
+group = "kachnajukebox.fit.su"
+version = "0.0.1"
+application {
+    mainClass.set("kachnajukebox.fit.su.ApplicationKt")
+
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
 }
 
-kotlin {
-    val nativeTarget = when (System.getProperty("os.name")) {
-        "Mac OS X" -> macosX64("native")
-        "Linux" -> linuxX64("native")
-        // Other supported targets are listed here: https://ktor.io/docs/native-server.html#targets
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
-
-    nativeTarget.apply {
-        binaries {
-            executable {
-                entryPoint = "main"
-            }
-        }
-    }
-    sourceSets {
-        val nativeMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-server-core:$ktor_version")
-                implementation("io.ktor:ktor-server-cio:$ktor_version")
-            }
-        }
-        val nativeTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-    }
+dependencies {
+    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-freemarker:$ktor_version")
+    implementation("ch.qos.logback:logback-classic:$logback_version")
+    testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

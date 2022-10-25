@@ -1,0 +1,1 @@
+rootProject.name = "kachna-jukebox-jvm"
