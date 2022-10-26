@@ -23,6 +23,11 @@ repositories {
 
 dependencies {
     implementation("io.github.cdimascio:dotenv-kotlin:6.3.1")
+
+    implementation("io.insert-koin:koin-core:3.2.2")
+    implementation("io.insert-koin:koin-ktor:3.2.2")
+    implementation("io.insert-koin:koin-logger-slf4j:3.2.2")
+
     implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-freemarker:$ktor_version")
