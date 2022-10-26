@@ -1,6 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
+val development: String by project
 
 plugins {
     application
@@ -12,8 +13,7 @@ group = "kachnajukebox.fit.su"
 version = "0.0.1"
 application {
     mainClass.set("kachnajukebox.fit.su.ApplicationKt")
-
-    val isDevelopment: Boolean = project.ext.has("development")
+    val isDevelopment: Boolean = development == "true"
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
