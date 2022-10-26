@@ -11,7 +11,6 @@ fun Application.configureRouting() {
         get("/") {
             call.respond(FreeMarkerContent("index.ftl", mapOf("username" to "Idiot")))
         }
-
         static("/style") {
             resources("style/")
         }
