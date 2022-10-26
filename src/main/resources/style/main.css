@@ -7,6 +7,8 @@
 html, body {
     background-color: #202124;
     padding: min(1rem, 1vw);
+    font-family: sans-serif;
+    color: #e1e3e6;
 }
 
 svg {
@@ -27,17 +29,52 @@ textarea:focus, input:focus {
 }
 
 .search-box {
+    background-color: #303134;
+    border-radius: 15px;
+    padding: 4px 10px;
+}
+
+.search-box__input {
     display: grid;
     grid-template-columns: 2rem 1fr;
     justify-items: center;
     align-items: center;
-
-    padding: 2px 10px;
-    border-radius: 9999px;
-
-    background-color: #303134;
+    margin-bottom: 0.2rem;
 }
 
 .search-box__icon {
     height: 90%;
+}
+
+.search-result {
+    display: flex;
+    column-gap: 1rem;
+
+    height: 4rem;
+    padding: 0.5rem 0;
+}
+
+.search-box-splitter {
+    height: 1px;
+    background-color: #4d4d4d;
+}
+
+.search-result__image {
+    object-fit: cover;
+    border-radius: 9999px;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.search-result__artist-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result__artist-info__song {
+    font-weight: bolder;
+}
+
+.search-result__artist-info__name {
+    filter: brightness(80%);
 }
