@@ -1,4 +1,4 @@
-package kachnajukebox.fit.su.plugins
+package kachnajukebox.fit.su.plugins.routing
 
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
@@ -13,6 +13,9 @@ fun Application.configureRouting() {
         }
         static("/style") {
             resources("style/")
+        }
+        static("/js") {
+            resources("js/")
         }
     }
 }

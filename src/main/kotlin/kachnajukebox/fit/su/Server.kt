@@ -8,6 +8,7 @@ import io.ktor.server.freemarker.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import kachnajukebox.fit.su.plugins.routing.configureRouting
+import kachnajukebox.fit.su.plugins.routing.searchRouting
 import kachnajukebox.fit.su.plugins.spotify
 import org.koin.core.module.Module
 import org.koin.ktor.plugin.Koin
@@ -27,6 +28,7 @@ fun startServer(appModule: Module) {
         }
 
         configureRouting()
+        searchRouting()
         spotify()
     }.start(wait = true)
 }
