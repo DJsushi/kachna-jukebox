@@ -19,21 +19,16 @@
              viewBox="0 0 24 24">
             <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
         </svg>
-        <input aria-label="Search songs" type="text" placeholder="Search songs..." name="search-box__query" id="query">
+        <input class="search-box__input__text-field" aria-label="Search songs" type="text"
+               placeholder="Search songs...">
     </div>
+    <div class="search-box-splitter"></div>
+    <div class="search-box__results">
 
-    <#list 0..<10 as i>
-        <div class="search-box-splitter"></div>
-        <div class="search-result">
-            <img src="https://picsum.photos/seed/seedr${i}/200/200"
-                 class="search-result__image" alt="Soad"/>
-            <div class="search-result__artist-info">
-                <span class="search-result__artist-info__song">Toxicity${i}</span>
-                <span class="search-result__artist-info__name">System Of ${i} Down</span>
-            </div>
-        </div>
-    </#list>
+    </div>
 </div>
 
+
+<script src="js/search.js"></script>
 </body>
 </html>

@@ -59,6 +59,11 @@ textarea:focus, input:focus {
     background-color: #4d4d4d;
 }
 
+.search-box__results {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
 .search-result__image {
     object-fit: cover;
     border-radius: 9999px;
@@ -72,9 +77,11 @@ textarea:focus, input:focus {
 }
 
 .search-result__artist-info__song {
+    text-overflow: ellipsis;
     font-weight: bolder;
 }
 
 .search-result__artist-info__name {
+    text-overflow: ellipsis;
     filter: brightness(80%);
 }
